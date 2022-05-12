@@ -25,6 +25,7 @@ Ejemplifica los Gestores de Bases de Datos según el tipo de BD.
 
     MySQL -> Base de Datos Relacionales
     Microsoft SQL Server -> Base de Datos Relacionales
-    MongoDB -> Base de Datos NoSQL, orientado a documentos y de código abierto.
+    MongoDB -> Base de Datos NoSQL, orientado a documentos y de código abierto
+    PostgreSQL -> Base de Datos Relacional Orientado a Objetos y de código abierto
     
     
