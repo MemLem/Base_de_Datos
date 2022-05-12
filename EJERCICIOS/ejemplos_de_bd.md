@@ -21,3 +21,10 @@ Reseña la historia de SQL.
     2016	SQL:2016		Permite búsqueda de patrones, funciones de tabla polimórficas y compatibilidad con los ficheros JSON.
 
 Ejemplifica los Gestores de Bases de Datos según el tipo de BD.
+
+
+    MySQL -> Base de Datos Relacionales
+    Microsoft SQL Server -> Base de Datos Relacionales
+    MongoDB -> Base de Datos NoSQL, orientado a documentos y de código abierto.
+    
+    
