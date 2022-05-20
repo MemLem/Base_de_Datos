@@ -78,3 +78,14 @@ fecha, número de páginas y el número de ejemplares vendidos.
 ![image](https://user-images.githubusercontent.com/75552884/169092204-66d6d90b-537d-4b68-9504-f7ed2c5a3ed5.png)
 
 
+
+
+
+
+
+1:N  SE crean claves foraneas en cada entidad, las cuales corresponden a la claves primarias de la entidad origen.
+
+N:M Se crea una nueva tabla (derivada) cuyos atributos son las claves primarias de cada entidad.
+
+
+
