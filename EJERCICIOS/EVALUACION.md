@@ -80,8 +80,7 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-
-https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/0
+https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/1
 
 
 1:N  SE crean claves foraneas en cada entidad, las cuales corresponden a la claves primarias de la entidad origen.
