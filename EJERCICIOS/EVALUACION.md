@@ -78,55 +78,72 @@ fecha, número de páginas y el número de ejemplares vendidos.
 ![image](https://user-images.githubusercontent.com/75552884/169924606-82926d83-74ea-4b5c-87e5-876c1f2652c8.png)
 
 
-     CREATE DATABASE editorial;
-     USE editorial;
+- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/2
 
-     CREATE TABLE sucursales (
-       codigo INT UNSIGNED PRIMARY KEY,
-       domicilio VARCHAR(70) NOT NULL,  
-       telefono VARCHAR(10) NOT NULL
-     );
+      CREATE DATABASE editorial;
+      USE editorial;
 
-     CREATE TABLE revistas (
-       num_registro INT UNSIGNED PRIMARY KEY,
-       titulo VARCHAR(50) NOT NULL,
-       periodicidad VARCHAR(50) NOT NULL,
-       tipo VARCHAR(50) NOT NULL
-     );
+      CREATE TABLE sucursales (
+        codigo INT UNSIGNED PRIMARY KEY,
+        domicilio VARCHAR(70) NOT NULL,  
+        telefono VARCHAR(10) NOT NULL
+      );
 
-     CREATE TABLE periodistas (
-       nif INT UNSIGNED PRIMARY KEY,
-       nombre VARCHAR(50) NOT NULL,
-       apellido VARCHAR(50) NOT NULL,
-       telefono VARCHAR(10) NOT NULL,
-       especialidad VARCHAR(25) NOT NULL
-     );
+      CREATE TABLE revistas (
+        num_registro INT UNSIGNED PRIMARY KEY,
+        titulo VARCHAR(50) NOT NULL,
+        periodicidad VARCHAR(50) NOT NULL,
+        tipo VARCHAR(50) NOT NULL
+      );
 
-     CREATE TABLE empleados (
-       nif INT UNSIGNED PRIMARY KEY,
-       nombre VARCHAR(50) NOT NULL,
-       apellido VARCHAR(50) NOT NULL,
-       telefono VARCHAR(10) NOT NULL,
-       codigo1 INT UNSIGNED NOT NULL,
-       FOREIGN KEY (codigo1) REFERENCES sucursales(codigo)
-     );
+      CREATE TABLE periodistas (
+        nif INT UNSIGNED PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        apellido VARCHAR(50) NOT NULL,
+        telefono VARCHAR(10) NOT NULL,
+        especialidad VARCHAR(25) NOT NULL
+      );
 
-     CREATE TABLE secciones (
-       id INT UNSIGNED PRIMARY KEY,
-       titulo VARCHAR(50) NOT NULL,
-       extension VARCHAR(50) NOT NULL,
-       num_registro1 INT UNSIGNED NOT NULL,
-       FOREIGN KEY (num_registro1) REFERENCES revistas(num_registro)
-     );
+      CREATE TABLE empleados (
+        nif INT UNSIGNED PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        apellido VARCHAR(50) NOT NULL,
+        telefono VARCHAR(10) NOT NULL,
+        codigo1 INT UNSIGNED NOT NULL,
+        FOREIGN KEY (codigo1) REFERENCES sucursales(codigo)
+      );
 
-     CREATE TABLE ejemplares (
-       id INT UNSIGNED PRIMARY KEY,
-       fecha DATE NOT NULL,
-       num_paginas INT UNSIGNED, 
-       num_vendidos INT UNSIGNED,
-       num_registro2 INT UNSIGNED NOT NULL,
-       FOREIGN KEY (num_registro2) REFERENCES revistas(num_registro)
-     );
+      CREATE TABLE secciones (
+        id INT UNSIGNED PRIMARY KEY,
+        titulo VARCHAR(50) NOT NULL,
+        extension VARCHAR(50) NOT NULL,
+        num_registro1 INT UNSIGNED NOT NULL,
+        FOREIGN KEY (num_registro1) REFERENCES revistas(num_registro)
+      );
+
+      CREATE TABLE ejemplares (
+        id INT UNSIGNED PRIMARY KEY,
+        fecha DATE NOT NULL,
+        num_paginas INT UNSIGNED, 
+        num_vendidos INT UNSIGNED,
+        num_registro2 INT UNSIGNED NOT NULL,
+        FOREIGN KEY (num_registro2) REFERENCES revistas(num_registro)
+      );
+
+      CREATE TABLE sucursales_revistas (
+        codigo1 INT UNSIGNED,
+        num_registro3 INT UNSIGNED,
+        FOREIGN KEY (codigo1) REFERENCES sucursales(codigo),
+        FOREIGN KEY (num_registro3) REFERENCES revistas(num_registro)
+      );
+
+      CREATE TABLE revistas_periodistas (
+        num_registro4 INT UNSIGNED,
+        nif2 INT UNSIGNED,
+        FOREIGN KEY (num_registro4) REFERENCES revistas(num_registro),
+        FOREIGN KEY (nif2) REFERENCES periodistas(nif)
+      );
+
 
 
 https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/1
