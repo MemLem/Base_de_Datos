@@ -79,7 +79,7 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/4
+- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/5
 
       CREATE DATABASE editorial;
       USE editorial;
