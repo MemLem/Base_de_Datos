@@ -78,9 +78,53 @@ Tienda de informática
 
 Modelo entidad/relación
 
-![image](https://user-images.githubusercontent.com/75552884/170521620-b7b5049c-77bd-4724-a517-ca78accf09ca.png)
+![image](https://user-images.githubusercontent.com/75552884/170527911-0fe18ec8-0770-4164-9688-69be21582b9e.png)
+
 
 
 
 
 Base de datos para MySQL
+
+- Esquema SQL: https://www.db-fiddle.com/f/5tnmKj19B6eguYfFcrh6Jf/0
+
+        CREATE DATABASE tienda_informatica;
+        USE tienda_informatica;
+
+        CREATE TABLE fabricante(
+          id_fabricante INT UNSIGNED PRIMARY KEY,
+          nombre_fabricante VARCHAR(50)
+        );
+
+
+        INSERT INTO fabricante VALUES (1,'SEAGATE');
+        INSERT INTO fabricante VALUES (2,'CRUCIAL' );
+        INSERT INTO fabricante VALUES (3,'SAMSUNG');
+        INSERT INTO fabricante VALUES (4,'GIGABYTE');
+        INSERT INTO fabricante VALUES (5,'ASUS');
+        INSERT INTO fabricante VALUES (6,'LENOVO');
+        INSERT INTO fabricante VALUES (7,'HP');
+
+
+
+        CREATE TABLE productos(
+          codigo_producto VARCHAR(5) PRIMARY KEY,
+          nombre_producto VARCHAR(50),
+          precio_producto FLOAT,
+          id_fabricante1 INT UNSIGNED,
+          FOREIGN KEY (id_fabricante1) REFERENCES fabricante(id_fabricante)
+        );
+
+
+        INSERT INTO productos VALUES ('DD-23', 'Disco duro SATA3 1TB', 86.99, 1);
+        INSERT INTO productos VALUES ('MM-34', 'Memoria RAM DDR4 8GB', 120.6, 2);
+        INSERT INTO productos VALUES ('DD-98', 'Disco SSD 1TB', 150.99, 3);
+        INSERT INTO productos VALUES ('MM-98', 'GeForce GTX 1050Ti', 185.7, 4);
+        INSERT INTO productos VALUES ('MM-23', 'GeForce GTX 1080 Xtreme', 755.6, 2);
+        INSERT INTO productos VALUES ('MT-12', 'Monitor 24 LED Full HD', 202.1, 5);
+        INSERT INTO productos VALUES ('MT-08', 'Monitor 27 LED Full HD', 245.99, 5);
+        INSERT INTO productos VALUES ('LP-19', 'Portátil Yoga 520', 559.2, 6);
+        INSERT INTO productos VALUES ('LP-11', 'Portátil Ideapd 320', 444.2, 6);
+        INSERT INTO productos VALUES ('IM-56', 'Impresora HP Deskjet 3720', 59.99, 7);
+        INSERT INTO productos VALUES ('IP-54', 'Impresora HP Laserjet Pro M26nw', 180.3, 7);
+
