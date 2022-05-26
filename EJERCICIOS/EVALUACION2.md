@@ -3,22 +3,44 @@
 Objetivo: Demostrar la correcta identificación de los conceptos del lenguaje SQL
 Ejercicio:
 
-1. Menciona los comandos DMl: (valor .85)
+1. Menciona los comandos DML (DML = Data Manipulation Language): (valor .85):
+
+        - SELECT: Sirve para consultar resgistros de una BD que satisfacen un criterio detemrinado.
+        - INSERT: Encargado de cargar lostes de datos en la BD en uan unica operaicón.
+        - UPDATE: Se utiliza para modificar los valores de los campos y registros especificados.
+        - DELETE: Elimina resgitros de una tabla. 
+
 
 2. Menciona 3 tipos de datos que existen: (valor .85)
+   
+        - Caracter
+        - Númerico
+        - Fecha y hora
 
 
 3. ¿Qué diferencia existe entre TRUNCATE y DELETE?(valor .85)
 
+        - DELETE: Elimina una serie de registros de una tabla y permite el borrado selectivo.
+        - TRUNCATE: Elimina todo el contenido de la tabla, pero sin elminar la tabla. También resetea los contadores.
+        
+
 4. ¿Para qué se utiliza el atributo UNIQUE?(valor .85)
 
+        Para impedir que se puedan repetir datos en un atributo.
+
 5. ¿Qué diferencia hay entre los tipos de datos VARCHAR y CHAR? (valor .85)
+
+        - CHAR(): Define una cadena de caracteres de longitud fija, la cual es especificada por el usuario.
+        - VARCHAR(): Define una cadena de caracteres de longitud variable con una longitud maxima especificada por el usuario.
 
 
 6. Defina brevemente el significado de las siglas SQL(valor .85)
 
+        SQL (Structured Query Language) es un lenguaje estándar e interactivo de acceso a bases de datos relacionales que permite especificar diversos tipos de operaciones en ellas, gracias a la utilización del álgebra y de cálculos relacionales.
 
 7. Defina brevemente qué es MySQL WorkBench (valor .85)
+
+        Es un editor visual de base de datos MySQL basado en software libre que cuenta con el respaldo oficial de MySQL. Una herramienta que lo caracteriza es su editor de diagramas
 
 ## Práctica 5.
 ### Gestores de base de datos
