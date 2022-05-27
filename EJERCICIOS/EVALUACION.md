@@ -80,21 +80,22 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/10
+- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/11
 
 
       CREATE DATABASE editorial;
       USE editorial;
 
 
-      -- SE CREA LA TABLA "SUCURSALES" Y SE GENERA SUS DATOS
+
+
+      -- SE CREA LA TABLA "sucursales" Y SE GENERA SUS DATOS
 
       CREATE TABLE sucursales (
         codigo_suc VARCHAR(6) PRIMARY KEY,
         domicilio_suc VARCHAR(100) NOT NULL,  
         telefono_suc BIGINT UNSIGNED NOT NULL
       );
-
 
       INSERT INTO sucursales VALUES ('suc-01','Tenayuca 15, Colonia Porvenir',5573485948);
       INSERT INTO sucursales VALUES ('suc-02','Ahuehuetes 24, Colona Reynosa',3395847649);
@@ -108,6 +109,8 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO sucursales VALUES ('suc-10','Cervantes 56, Colonia Juárez',2288473845);
 
 
+
+
       -- SE CREA LA TABLA "revistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE revistas (
@@ -117,13 +120,13 @@ fecha, número de páginas y el número de ejemplares vendidos.
         tipo_rev VARCHAR(50) NOT NULL
       );
 
-
       INSERT INTO revistas VALUES ('REV_098','POLITICA HOY','SEMANAL','POLITICA');
       INSERT INTO revistas VALUES ('REV_099','EMOCION DEPORTIVA','QUINCENAL','DEPORTIVA');
       INSERT INTO revistas VALUES ('REV_100','MUNDO ROSA','SEMANAL','ESPECTACULOS');
       INSERT INTO revistas VALUES ('REV_101','VIDEOGAMER','MENSUAL','VIDEOJUEGOS');
       INSERT INTO revistas VALUES ('REV_102','CINE HOY','SEMANAL','CINE');
       INSERT INTO revistas VALUES ('REV_103','TODO EN CULTURA','MENSUAL','CULTURAL');
+
 
 
 
@@ -136,7 +139,6 @@ fecha, número de páginas y el número de ejemplares vendidos.
         telefono_peri BIGINT UNSIGNED NOT NULL,
         especialidad_peri VARCHAR(25) NOT NULL
       );
-
 
       INSERT INTO periodistas VALUES ('PER_01','KARLA','JUAREZ',5534563748,'DEPORTES');
       INSERT INTO periodistas VALUES ('PER_02','BEATRIZ','LOPEZ',7289467349,'POLITICA');
@@ -153,6 +155,7 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+
       -- SE CREA LA TABLA "empleados" Y SE GENERA SUS DATOS
 
       CREATE TABLE empleados (
@@ -160,10 +163,9 @@ fecha, número de páginas y el número de ejemplares vendidos.
         nombre_emple VARCHAR(50) NOT NULL,
         apellido_emple VARCHAR(50) NOT NULL,
         telefono_emple VARCHAR(10),
-        codigo1 VARCHAR(6) NOT NULL,
-        FOREIGN KEY (codigo1) REFERENCES sucursales(codigo_suc)
+        codigo_suc1 VARCHAR(6) NOT NULL,
+        FOREIGN KEY (codigo_suc1) REFERENCES sucursales(codigo_suc)
       );
-
 
       INSERT INTO empleados VALUES ('EMP_01','ANGELICA','BLANCAS',NULL,'suc-01');
       INSERT INTO empleados VALUES ('EMP_02','DAVID','ASPEITIA',NULL,'suc-02');
@@ -178,16 +180,16 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+
       -- SE CREA LA TABLA "secciones" Y SE GENERA SUS DATOS
 
       CREATE TABLE secciones (
         id_secc INT UNSIGNED PRIMARY KEY,
         titulo_secc VARCHAR(50) NOT NULL,
         extension_secc VARCHAR(3) NOT NULL,
-        num_registro1 VARCHAR(7) NOT NULL,
-        FOREIGN KEY (num_registro1) REFERENCES revistas(num_registro_rev)
+        num_registro_rev1 VARCHAR(7) NOT NULL,
+        FOREIGN KEY (num_registro_rev1) REFERENCES revistas(num_registro_rev)
       );
-
 
       INSERT INTO secciones VALUES (1,'espectaculos','esp','REV_098');
       INSERT INTO secciones VALUES (2,'deportes','dep','REV_099');
@@ -196,12 +198,10 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO secciones VALUES (5,'hogar','hog','REV_102');
       INSERT INTO secciones VALUES (6,'cultura','cul','REV_103');
 
-      --HAY UN SEIS REVISTAS PERO SIETE SECCIONES.
-      --¿QUÉ PASA CUANDO HAY MAS REGISTROS EN UNA BASE QUE OTRA?
-      -- PUEDE EC¿XISTIR UN VALOR NULL EN OTRA TABLA QUE CONTENGA LA CLAVE FORANEA DE OTRA TABLA?
-      -- INSERT INTO secciones VALUES (7,'videojuegos','vid',NULL);
+      -- Hay 6 revistas pero 7 secciones. En este caso asigne bajo criterios arbitrarios la sección 7 a x revista
 
       INSERT INTO secciones VALUES (7,'videojuegos','vid','REV_103');
+
 
 
 
@@ -212,8 +212,8 @@ fecha, número de páginas y el número de ejemplares vendidos.
         fecha_emjemp YEAR NOT NULL,
         num_paginas_ejemp INT UNSIGNED, 
         num_vendidos_ejemp INT UNSIGNED,
-        num_registro2 VARCHAR(7) NOT NULL,
-        FOREIGN KEY (num_registro2) REFERENCES revistas(num_registro_rev)
+        num_registro_rev2 VARCHAR(7) NOT NULL,
+        FOREIGN KEY (num_registro_rev2) REFERENCES revistas(num_registro_rev)
       );
 
 
@@ -223,20 +223,18 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO ejemplares VALUES ('M04','2022',90,5654,'REV_101');
       INSERT INTO ejemplares VALUES ('M05','2022',100,3434,'REV_102');
       INSERT INTO ejemplares VALUES ('M06','2021',100,6546,'REV_103');
-
-      -- INSERT INTO ejemplares VALUES ('M07','2022',56,4534,NULL);
-
       INSERT INTO ejemplares VALUES ('M07','2022',56,4534,'REV_103');
+
 
 
 
       -- SE CREA LA TABLA "sucursales_revistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE sucursales_revistas (
-        codigo2 VARCHAR(6),
-        num_registro3 VARCHAR(7),
-        FOREIGN KEY (codigo2) REFERENCES sucursales(codigo_suc),
-        FOREIGN KEY (num_registro3) REFERENCES revistas(num_registro_rev)
+        codigo_suc2 VARCHAR(6),
+        num_registro_rev3 VARCHAR(7),
+        FOREIGN KEY (codigo_suc2) REFERENCES sucursales(codigo_suc),
+        FOREIGN KEY (num_registro_rev3) REFERENCES revistas(num_registro_rev)
       );
 
       INSERT INTO sucursales_revistas VALUES ('suc-01','REV_098');
@@ -246,7 +244,8 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO sucursales_revistas VALUES ('suc-05','REV_102');
       INSERT INTO sucursales_revistas VALUES ('suc-06','REV_103');
 
-      -- MISMO CASO. HAY MAS SUCURSALES QUE REVISTAS. YO ASIGNE ALEATORIAMNETE EL num_registro DE LAS RESVITAS AL codigo DE LAS SUCURSALES 
+      -- Hay mas sucursales que revistas. Se asignó arbitrariamente un "num_registro" de las revistas a los "codigo" de las sucursales restantes.
+
       INSERT INTO sucursales_revistas VALUES ('suc-07','REV_098');
       INSERT INTO sucursales_revistas VALUES ('suc-08','REV_099');
       INSERT INTO sucursales_revistas VALUES ('suc-09','REV_100');
@@ -255,18 +254,15 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-
       -- SE CREA LA TABLA "revistas_periodistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE revistas_periodistas (
-        num_registro4 VARCHAR(7),
-        nif1 VARCHAR(6),
-        FOREIGN KEY (num_registro4) REFERENCES revistas(num_registro_rev),
-        FOREIGN KEY (nif1) REFERENCES periodistas(nif_peri)
+        num_registro_rev4 VARCHAR(7),
+        nif_peri1 VARCHAR(6),
+        FOREIGN KEY (num_registro_rev4) REFERENCES revistas(num_registro_rev),
+        FOREIGN KEY (nif_peri1) REFERENCES periodistas(nif_peri)
       );
 
-
-      -- MISMO CASO. HAY MAS PERIODISTAS QUE REVISTAS. YO ASIGNE ALEATORIAMNETE EL nif1 DE LOS PERIODISTAS AL codigo DE LAS REVISTAS 
 
       INSERT INTO revistas_periodistas VALUES ('REV_098','PER_01');
       INSERT INTO revistas_periodistas VALUES ('REV_099','PER_02');
@@ -274,12 +270,16 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO revistas_periodistas VALUES ('REV_101','PER_04');
       INSERT INTO revistas_periodistas VALUES ('REV_102','PER_05');
       INSERT INTO revistas_periodistas VALUES ('REV_103','PER_06');
+
+      -- Hay mas periodistas que revistas. Se asignó arbitrariamente un "num_registro_rev" de las revistas a los ID (nif_peri) de los periodistas restantes. 
+
       INSERT INTO revistas_periodistas VALUES ('REV_098','PER_07');
       INSERT INTO revistas_periodistas VALUES ('REV_099','PER_08');
       INSERT INTO revistas_periodistas VALUES ('REV_100','PER_09');
       INSERT INTO revistas_periodistas VALUES ('REV_101','PER_10');
       INSERT INTO revistas_periodistas VALUES ('REV_102','PER_11');
       INSERT INTO revistas_periodistas VALUES ('REV_103','PER_12');
+
 
 
 
