@@ -79,20 +79,19 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/8
-
+- ESQUEMA SQL: https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/9
 
 
       CREATE DATABASE editorial;
       USE editorial;
 
 
-
+      -- SE CREA LA TABLA "SUCURSALES" Y SE GENERA SUS DATOS
 
       CREATE TABLE sucursales (
-        codigo VARCHAR(6) PRIMARY KEY,
-        domicilio VARCHAR(100) NOT NULL,  
-        telefono BIGINT UNSIGNED NOT NULL
+        codigo_suc VARCHAR(6) PRIMARY KEY,
+        domicilio_suc VARCHAR(100) NOT NULL,  
+        telefono_suc BIGINT UNSIGNED NOT NULL
       );
 
 
@@ -108,13 +107,13 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO sucursales VALUES ('suc-10','Cervantes 56, Colonia Juárez',2288473845);
 
 
-
+      -- SE CREA LA TABLA "revistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE revistas (
-        num_registro VARCHAR(7) PRIMARY KEY,
-        titulo VARCHAR(50) NOT NULL,
-        periodicidad VARCHAR(50) NOT NULL,
-        tipo VARCHAR(50) NOT NULL
+        num_registro_rev VARCHAR(7) PRIMARY KEY,
+        titulo_rev VARCHAR(50) NOT NULL,
+        periodicidad_rev VARCHAR(50) NOT NULL,
+        tipo_rev VARCHAR(50) NOT NULL
       );
 
 
@@ -127,13 +126,14 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+      -- SE CREA LA TABLA "periodistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE periodistas (
-        nif VARCHAR(6) PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        apellido VARCHAR(50) NOT NULL,
-        telefono BIGINT UNSIGNED NOT NULL,
-        especialidad VARCHAR(25) NOT NULL
+        nif_peri VARCHAR(6) PRIMARY KEY,
+        nombre_peri VARCHAR(50) NOT NULL,
+        apellido_peri VARCHAR(50) NOT NULL,
+        telefono_peri BIGINT UNSIGNED NOT NULL,
+        especialidad_peri VARCHAR(25) NOT NULL
       );
 
 
@@ -151,13 +151,16 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO periodistas VALUES ('PER_12','MAGDA','LIRA',7683749504,'POLITICA');
 
 
+
+      -- SE CREA LA TABLA "empleados" Y SE GENERA SUS DATOS
+
       CREATE TABLE empleados (
-        nif VARCHAR(6) PRIMARY KEY,
-        nombre VARCHAR(50) NOT NULL,
-        apellido VARCHAR(50) NOT NULL,
-        telefono VARCHAR(10),
+        nif_emple VARCHAR(6) PRIMARY KEY,
+        nombre_emple VARCHAR(50) NOT NULL,
+        apellido_emple VARCHAR(50) NOT NULL,
+        telefono_emple VARCHAR(10),
         codigo1 VARCHAR(6) NOT NULL,
-        FOREIGN KEY (codigo1) REFERENCES sucursales(codigo)
+        FOREIGN KEY (codigo1) REFERENCES sucursales(codigo_suc)
       );
 
 
@@ -174,13 +177,14 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+      -- SE CREA LA TABLA "secciones" Y SE GENERA SUS DATOS
 
       CREATE TABLE secciones (
-        id INT UNSIGNED PRIMARY KEY,
-        titulo VARCHAR(50) NOT NULL,
-        extension VARCHAR(3) NOT NULL,
+        id_secc INT UNSIGNED PRIMARY KEY,
+        titulo_secc VARCHAR(50) NOT NULL,
+        extension_secc VARCHAR(3) NOT NULL,
         num_registro1 VARCHAR(7) NOT NULL,
-        FOREIGN KEY (num_registro1) REFERENCES revistas(num_registro)
+        FOREIGN KEY (num_registro1) REFERENCES revistas(num_registro_rev)
       );
 
 
@@ -200,14 +204,15 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+      -- SE CREA LA TABLA "ejemplares" Y SE GENERA SUS DATOS
 
       CREATE TABLE ejemplares (
-        id VARCHAR(3) PRIMARY KEY,
-        fecha YEAR NOT NULL,
-        num_paginas INT UNSIGNED, 
-        num_vendidos INT UNSIGNED,
+        id_ejemp VARCHAR(3) PRIMARY KEY,
+        fecha_emjemp YEAR NOT NULL,
+        num_paginas_ejemp INT UNSIGNED, 
+        num_vendidos_ejemp INT UNSIGNED,
         num_registro2 VARCHAR(7) NOT NULL,
-        FOREIGN KEY (num_registro2) REFERENCES revistas(num_registro)
+        FOREIGN KEY (num_registro2) REFERENCES revistas(num_registro_rev)
       );
 
 
@@ -224,12 +229,13 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
+      -- SE CREA LA TABLA "sucursales_revistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE sucursales_revistas (
         codigo2 VARCHAR(6),
         num_registro3 VARCHAR(7),
-        FOREIGN KEY (codigo2) REFERENCES sucursales(codigo),
-        FOREIGN KEY (num_registro3) REFERENCES revistas(num_registro)
+        FOREIGN KEY (codigo2) REFERENCES sucursales(codigo_suc),
+        FOREIGN KEY (num_registro3) REFERENCES revistas(num_registro_rev)
       );
 
       INSERT INTO sucursales_revistas VALUES ('suc-01','REV_098');
@@ -249,13 +255,13 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-
+      -- SE CREA LA TABLA "revistas_periodistas" Y SE GENERA SUS DATOS
 
       CREATE TABLE revistas_periodistas (
         num_registro4 VARCHAR(7),
         nif1 VARCHAR(6),
-        FOREIGN KEY (num_registro4) REFERENCES revistas(num_registro),
-        FOREIGN KEY (nif1) REFERENCES periodistas(nif)
+        FOREIGN KEY (num_registro4) REFERENCES revistas(num_registro_rev),
+        FOREIGN KEY (nif1) REFERENCES periodistas(nif_peri)
       );
 
 
@@ -273,6 +279,7 @@ fecha, número de páginas y el número de ejemplares vendidos.
       INSERT INTO revistas_periodistas VALUES ('REV_101','PER_10');
       INSERT INTO revistas_periodistas VALUES ('REV_102','PER_11');
       INSERT INTO revistas_periodistas VALUES ('REV_103','PER_12');
+
 
 
 
