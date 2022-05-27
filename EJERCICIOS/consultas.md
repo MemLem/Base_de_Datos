@@ -1,6 +1,13 @@
 En la BD utilizada en clase realiza las siguientes consultas:
 
 * La tabla empleado
+
+      USE editorial;
+
+      SELECT * FROM empleados;
+
+![image](https://user-images.githubusercontent.com/75552884/170729150-fe475747-36c8-4663-b683-7d2e11112407.png)
+
 * Los titulos de las revistas
 * Los nombres, apellidos y especialidad de los periodostas
 * Muestra los empleados que estan en x sucursal
