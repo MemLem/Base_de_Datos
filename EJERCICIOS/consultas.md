@@ -47,5 +47,8 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/10) en cl
 
 https://www.db-fiddle.com/f/iAUjGLoFoHtam2pK68Xh1B/1
 
+
+RESPUESTAS: https://www.db-fiddle.com/f/iAUjGLoFoHtam2pK68Xh1B/0
+
 EJEMPLO
 https://www.db-fiddle.com/f/f5YQQo1MCXhD95LFCdiYFB/13
