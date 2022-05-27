@@ -284,9 +284,11 @@ fecha, número de páginas y el número de ejemplares vendidos.
 
 
 
-1:N  SE crean claves foraneas en cada entidad, las cuales corresponden a la claves primarias de la entidad origen.
+NOTAS:
 
-N:M Se crea una nueva tabla (derivada) cuyos atributos son las claves primarias de cada entidad.
+1:N -> Se crea una clave foránea en la entidad destino, la cual corresponde a la clave primaria de la entidad origen.
+
+N:M -> Se crea una nueva tabla (derivada) cuyos campos son las claves primarias de cada entidad. En esta nueva tabla tales claves pasan a ser claves foráneas.
 
 
 
