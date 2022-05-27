@@ -6,7 +6,8 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/9) en cla
 
       SELECT * FROM empleados;
 
-![image](https://user-images.githubusercontent.com/75552884/170730280-d52fc6e5-1638-4458-a464-53eee72f549a.png)
+![image](https://user-images.githubusercontent.com/75552884/170736175-8df7edc5-0f46-4f86-a48b-107e6bc0091a.png)
+
 
 
 * Los titulos de las revistas
