@@ -1,4 +1,4 @@
-En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/10) en clase realiza las siguientes consultas:
+En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/11) en clase realiza las siguientes consultas:
 
 * La tabla empleado
 
