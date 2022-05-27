@@ -9,6 +9,13 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/9) en cla
 ![image](https://user-images.githubusercontent.com/75552884/170729150-fe475747-36c8-4663-b683-7d2e11112407.png)
 
 * Los titulos de las revistas
+
+      USE editorial;
+
+      SELECT titulo_rev FROM revistas;
+
+![image](https://user-images.githubusercontent.com/75552884/170729514-ba798086-1202-4fd8-a426-13067e9f3258.png)
+
 * Los nombres, apellidos y especialidad de los periodostas
 * Muestra los empleados que estan en x sucursal
 * Muestra que periodistas colaboraron en x revista y en que sucursal se publico la revista
