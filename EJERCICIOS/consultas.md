@@ -39,6 +39,18 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/11) en cl
 ![image](https://user-images.githubusercontent.com/75552884/170735137-6a7f1dfe-e228-4aca-a96e-d385708dabfc.png)
 
 * Muestra que periodistas colaboraron en x revista y en que sucursal se publico la revista
+
+      USE editorial; 
+
+      SELECT nif_peri, nombre_peri, apellido_peri, titulo_rev, codigo_suc FROM periodistas
+      INNER JOIN revistas_periodistas ON periodistas.nif_peri = revistas_periodistas.nif_peri1
+      INNER JOIN revistas ON revistas.num_registro_rev = revistas_periodistas.num_registro_rev4
+      INNER JOIN sucursales_revistas ON revistas.num_registro_rev = sucursales_revistas.num_registro_rev3
+      INNER JOIN sucursales ON sucursales.codigo_suc = sucursales_revistas.codigo_suc2
+
+![image](https://user-images.githubusercontent.com/75552884/171052399-4452c481-2d02-4769-bb81-04872268c600.png)
+
+
 * Mustra que seccion esta en x revista, en que sucursal se imprimio y que empleados estan en esa sucursal.
 * En la tabla peridistas muestra solo los que escriban sobre cine
 * De la tabla revistas muestra las que sean de publicacion quincenal
