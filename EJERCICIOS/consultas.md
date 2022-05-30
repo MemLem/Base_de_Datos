@@ -47,8 +47,10 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/11) en cl
       INNER JOIN revistas ON revistas.num_registro_rev = revistas_periodistas.num_registro_rev4
       INNER JOIN sucursales_revistas ON revistas.num_registro_rev = sucursales_revistas.num_registro_rev3
       INNER JOIN sucursales ON sucursales.codigo_suc = sucursales_revistas.codigo_suc2
+      WHERE titulo_rev = 'POLITICA HOY'
 
-![image](https://user-images.githubusercontent.com/75552884/171052399-4452c481-2d02-4769-bb81-04872268c600.png)
+![image](https://user-images.githubusercontent.com/75552884/171052708-55786cd9-8ab6-4d6d-b31b-9c72d8c88518.png)
+
 
 
 * Mustra que seccion esta en x revista, en que sucursal se imprimio y que empleados estan en esa sucursal.
