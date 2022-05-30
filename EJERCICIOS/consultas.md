@@ -77,6 +77,14 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/11) en cl
 ![image](https://user-images.githubusercontent.com/75552884/171055237-fac5f937-0dc1-45e1-b78a-40b7fc29cc2d.png)
 
 * De la tabla revistas muestra las que sean de publicacion quincenal
+
+      USE editorial; 
+
+      SELECT * FROM revistas
+      WHERE periodicidad_rev = 'QUINCENAL'
+
+![image](https://user-images.githubusercontent.com/75552884/171055430-b52e1e50-e9e5-4300-82e8-ee87133b2df4.png)
+
 * Muestra el nombre de ka revista que se hayan impreso despues del 30 de septiembre del 2021
 * Muestra el nombre de la revista que se haya publicado en la sucursal 1 cuyos ejemplares tengan más de 80 páginas.
 
