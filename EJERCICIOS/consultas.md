@@ -86,6 +86,15 @@ En la BD utilizada (https://www.db-fiddle.com/f/q1JxBLim4V94m9vfQjRXMd/12) en cl
 ![image](https://user-images.githubusercontent.com/75552884/171055430-b52e1e50-e9e5-4300-82e8-ee87133b2df4.png)
 
 * Muestra el nombre de ka revista que se hayan impreso despues del 30 de septiembre del 2021
+
+      USE editorial;
+
+      SELECT titulo_rev, fecha_emjemp FROM ejemplares
+      INNER JOIN revistas ON ejemplares.num_registro_rev2 = revistas.num_registro_rev
+      WHERE fecha_emjemp > "2021-09-30"
+
+![image](https://user-images.githubusercontent.com/75552884/171056811-937c97ac-4257-444e-af28-5e794a0ad5bc.png)
+
 * Muestra el nombre de la revista que se haya publicado en la sucursal 1 cuyos ejemplares tengan más de 80 páginas.
 
 https://www.db-fiddle.com/f/iAUjGLoFoHtam2pK68Xh1B/1
