@@ -41,6 +41,12 @@ Por error se capturaron mal los siguientes datos, se deben corregir.
 
 Realiza las siguientes notas
 
+    INSERT INTO nota VALUES (1, 226, 67, 5, NULL);
+    INSERT INTO nota VALUES (2, 173, 45, 4, NULL);
+    INSERT INTO nota VALUES (3, 12, 155, 6, NULL);
+    INSERT INTO nota VALUES (4, 173, 23, 2, NULL);
+
+
 ![image](https://user-images.githubusercontent.com/91554777/171071841-ef5e3549-0235-4c77-846d-62aee10873cf.png)
 
 
