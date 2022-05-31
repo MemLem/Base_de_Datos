@@ -1,4 +1,4 @@
-En base al ejercicio (https://www.db-fiddle.com/f/cvdf1C86bx1tpabkcAhWBa/0) realiza las siguientes consultas
+En base al ejercicio (https://www.db-fiddle.com/f/kDgwhn4K8WTeUwXwQX35BK/1) realiza las siguientes consultas
 
 Por error se capturaron mal los siguientes datos, se deben corregir.
 
