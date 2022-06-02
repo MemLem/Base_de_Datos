@@ -31,43 +31,47 @@ un código de categoría único.
 ● Una pieza sólo puede pertenecer a una categoría.
 
 
+![image](https://user-images.githubusercontent.com/75552884/171750311-c19d50bb-87e2-4367-bb59-3b00d2470e67.png)
 
 
 
 
-![image](https://user-images.githubusercontent.com/75552884/171548212-2e494e97-39c7-45ea-914a-9b4e17c2f66c.png)
 
 
+- ESQUEMA SQL: https://www.db-fiddle.com/f/ov9TMGri4QEXwGrHJBbTuU/1
 
+            CREATE DATABASE proveedores;
 
-- ESQUEMA SQL: https://www.db-fiddle.com/f/ov9TMGri4QEXwGrHJBbTuU/0
+            USE proveedores;
 
-      CREATE DATABASE almacen;
+            CREATE TABLE repartidores(
+              cod_rep VARCHAR(15) PRIMARY KEY,
+              nombre_rep VARCHAR(30) NOT NULL, 
+              direccion_rep VARCHAR(80) NOT NULL,
+              ciudad_rep VARCHAR(30) NOT NULL,
+              provincia_rep VARCHAR(30) NOT NULL
+            );
 
-      USE almacen;
+            CREATE TABLE categorias(
+              cod_categoria VARCHAR(8) PRIMARY KEY,
+              nombre_cate VARCHAR(10) NOT NULL
+            );
 
-      CREATE TABLE proveedores(
-        cod_proveedor INT UNSIGNED PRIMARY KEY,
-        nombre_prov VARCHAR(30) NOT NULL, 
-        direccion_prov VARCHAR(80) NOT NULL,
-        ciudad_prov VARCHAR(30) NOT NULL,
-        provincia_prov VARCHAR(30) NOT NULL
-      );
+            CREATE TABLE piezas(
+              cod_pieza VARCHAR(8) PRIMARY KEY,
+              cod_categoria1 VARCHAR(8) NOT NULL, 
+              nombre_pieza VARCHAR(10) NOT NULL,
+              color VARCHAR(10) NOT NULL,
+              precio FLOAT UNSIGNED NOT NULL,
+              categoria VARCHAR(10) NOT NULL,
+              FOREIGN KEY (cod_categoria1) REFERENCES categorias(cod_categoria)
+            );
 
-      CREATE TABLE categorias(
-        cod_categoria VARCHAR(8) PRIMARY KEY,
-        nombre_cate VARCHAR(10) NOT NULL
-      );
-
-      CREATE TABLE piezas(
-        id_entrega VARCHAR(15) PRIMARY KEY,
-        cod_categoria1 VARCHAR(8) NOT NULL, 
-        codigo_pieza VARCHAR(8) NOT NULL,
-        nombre_pieza VARCHAR(10) NOT NULL,
-        cantidad INT UNSIGNED NOT NULL,
-        fecha DATE NOT NULL,
-        color VARCHAR(10),
-        precio FLOAT UNSIGNED NOT NULL,
-        FOREIGN KEY (cod_categoria1) REFERENCES categorias(cod_categoria)
-      );
-
+            CREATE TABLE provedores_piezas(
+              cod_rep1 VARCHAR(15),
+              cod_pieza1 VARCHAR(8),
+              cantidad INT UNSIGNED NOT NULL,
+              fecha DATE NOT NULL,
+              FOREIGN KEY (cod_rep1) REFERENCES repartidores(cod_rep),
+              FOREIGN KEY (cod_pieza1) REFERENCES piezas(cod_pieza)
+            );
