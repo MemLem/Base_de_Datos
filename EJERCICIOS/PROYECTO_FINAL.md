@@ -38,7 +38,7 @@ un código de categoría único.
 
 
 
-- ESQUEMA SQL: https://www.db-fiddle.com/f/ov9TMGri4QEXwGrHJBbTuU/1
+- ESQUEMA SQL: https://www.db-fiddle.com/f/ov9TMGri4QEXwGrHJBbTuU/2
 
             CREATE DATABASE proveedores;
 
