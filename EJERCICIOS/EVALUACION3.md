@@ -44,6 +44,15 @@ productos. (valor 4.5)
 uno de los fabricantes. El resultado mostrará el nombre del fabricante junto con los
 datos que se solicitan. (valor 4.5)
 
+        USE tienda_informatica;
+
+        SELECT nombre_fabricante, MAX(precio_producto), MIN(precio_producto), AVG(precio_producto) FROM productos
+        INNER JOIN fabricante ON productos.id_fabricante1 = fabricante.id_fabricante
+        GROUP BY(nombre_fabricante);
+
+![image](https://user-images.githubusercontent.com/75552884/171664797-d102e75e-3544-46f5-a8c8-f1086d07eb79.png)
+
+
 4. Muestra el nombre de cada fabricante, junto con el precio máximo, precio mínimo,
 precio medio y el número total de productos de los fabricantes que tienen un precio
 medio superior a 200€. Es necesario mostrar el nombre del fabricante. (valor 4.5)
