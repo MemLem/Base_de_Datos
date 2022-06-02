@@ -104,3 +104,6 @@ RESPUESTAS: https://www.db-fiddle.com/f/iAUjGLoFoHtam2pK68Xh1B/0
 
 EJEMPLO
 https://www.db-fiddle.com/f/f5YQQo1MCXhD95LFCdiYFB/13
+
+
+https://www.db-fiddle.com/f/uQShSiNHxLbsUXhW2bbe8D/1
