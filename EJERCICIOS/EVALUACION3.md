@@ -20,11 +20,18 @@ Ejercicio:
 ### Funciones en SQL
 Objetivo: Demostrar el uso y aplicación en una base de datos para mejorar la gestión
 
-DataBase: https://www.db-fiddle.com/f/5tnmKj19B6eguYfFcrh6Jf/0
+DataBase "tienda_informatica": https://www.db-fiddle.com/f/5tnmKj19B6eguYfFcrh6Jf/0
 
 Ejercicio:
 
 1. Calcula el número total de productos que hay en la tabla productos. (valor 4.5)
+
+        USE tienda_informatica;
+
+        SELECT COUNT(codigo_producto) FROM productos;
+        
+
+![image](https://user-images.githubusercontent.com/75552884/171654065-c1e880c9-e9e6-4330-977a-eccced4df008.png)
 
 
 2. Muestra el número total de productos que tiene cada uno de los fabricantes. El listado
