@@ -2,7 +2,7 @@
 
 1.- Qué es in TRIGGER?
 
-    Un trigger o disparador es un script que se usa en lenguaje de programación SQL con la finalidad de automatizar determinadas accciones en las tablas de las Bases de Datos cuando se insertan, modifican y añaden nuevos datos.
+    Un trigger o disparador es un script que se usa en lenguaje de programación SQL con la finalidad de automatizar determinadas accciones en las tablas de las Bases de Datos; especialmente, cuando se insertan, modifican o añaden nuevos datos.
 
 2.- Cuál es la función de un TRIGGER?
 
