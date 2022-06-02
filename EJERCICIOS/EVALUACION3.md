@@ -73,6 +73,18 @@ precio medio y el número total de productos de los fabricantes que tienen un pr
 medio superior a 200€. Es necesario mostrar el nombre del fabricante. (valor 4.5)
 
 
+        USE tienda_informatica;
+
+        SELECT nombre_fabricante,
+                COUNT(nombre_producto),
+                MAX(precio_producto), 	
+            MIN(precio_producto), 
+            AVG(precio_producto) FROM productos
+        INNER JOIN fabricante 
+                ON productos.id_fabricante1 = fabricante.id_fabricante
+        GROUP BY(nombre_fabricante);
+        -- WHERE AVG(precio_producto) > 200;
+
 ## Práctica 8.
 ### Disparadores (Triggers)
 
