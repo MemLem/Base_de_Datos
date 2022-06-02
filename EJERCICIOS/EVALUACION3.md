@@ -20,6 +20,8 @@ Ejercicio:
 ### Funciones en SQL
 Objetivo: Demostrar el uso y aplicación en una base de datos para mejorar la gestión
 
+DataBase: https://www.db-fiddle.com/f/5tnmKj19B6eguYfFcrh6Jf/0
+
 Ejercicio:
 
 1. Calcula el número total de productos que hay en la tabla productos. (valor 4.5)
