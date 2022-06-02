@@ -47,11 +47,11 @@ datos que se solicitan. (valor 4.5)
         USE tienda_informatica;
 
         SELECT nombre_fabricante,
-                MAX(precio_producto), 	
+            MAX(precio_producto), 	
             MIN(precio_producto), 
             AVG(precio_producto) FROM productos
         INNER JOIN fabricante 
-                ON productos.id_fabricante1 = fabricante.id_fabricante
+            ON productos.id_fabricante1 = fabricante.id_fabricante
         GROUP BY(nombre_fabricante);
 
 ![image](https://user-images.githubusercontent.com/75552884/171664797-d102e75e-3544-46f5-a8c8-f1086d07eb79.png)
