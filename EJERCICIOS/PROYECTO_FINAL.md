@@ -29,3 +29,45 @@ precio y categoría.
 un código de categoría único.
 
 ● Una pieza sólo puede pertenecer a una categoría.
+
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/75552884/171548212-2e494e97-39c7-45ea-914a-9b4e17c2f66c.png)
+
+
+
+
+- ESQUEMA SQL: https://www.db-fiddle.com/f/ov9TMGri4QEXwGrHJBbTuU/0
+
+      CREATE DATABASE almacen;
+
+      USE almacen;
+
+      CREATE TABLE proveedores(
+        cod_proveedor INT UNSIGNED PRIMARY KEY,
+        nombre_prov VARCHAR(30) NOT NULL, 
+        direccion_prov VARCHAR(80) NOT NULL,
+        ciudad_prov VARCHAR(30) NOT NULL,
+        provincia_prov VARCHAR(30) NOT NULL
+      );
+
+      CREATE TABLE categorias(
+        cod_categoria VARCHAR(8) PRIMARY KEY,
+        nombre_cate VARCHAR(10) NOT NULL
+      );
+
+      CREATE TABLE piezas(
+        id_entrega VARCHAR(15) PRIMARY KEY,
+        cod_categoria1 VARCHAR(8) NOT NULL, 
+        codigo_pieza VARCHAR(8) NOT NULL,
+        nombre_pieza VARCHAR(10) NOT NULL,
+        cantidad INT UNSIGNED NOT NULL,
+        fecha DATE NOT NULL,
+        color VARCHAR(10),
+        precio FLOAT UNSIGNED NOT NULL,
+        FOREIGN KEY (cod_categoria1) REFERENCES categorias(cod_categoria)
+      );
+
