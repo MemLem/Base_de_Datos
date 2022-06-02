@@ -28,10 +28,10 @@ Ejercicio:
 
         USE tienda_informatica;
 
-        SELECT COUNT(codigo_producto) FROM productos;
-        
+        SELECT COUNT(nombre_producto) FROM productos
 
-![image](https://user-images.githubusercontent.com/75552884/171654065-c1e880c9-e9e6-4330-977a-eccced4df008.png)
+![image](https://user-images.githubusercontent.com/75552884/171664023-615b3696-59a1-4220-bcf6-8255474d1798.png)
+
 
 
 2. Muestra el número total de productos que tiene cada uno de los fabricantes. El listado
