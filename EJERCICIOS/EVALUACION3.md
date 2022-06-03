@@ -42,7 +42,8 @@ productos. (valor 4.5)
 
         USE tienda_informatica;
 
-        SELECT nombre_fabricante, COUNT(codigo_producto) FROM fabricante
+        SELECT nombre_fabricante,
+                COUNT(codigo_producto) FROM fabricante
         INNER JOIN productos ON productos.id_fabricante1 = fabricante.id_fabricante
         GROUP BY(nombre_fabricante)
         ORDER BY (COUNT(codigo_producto)) DESC;
