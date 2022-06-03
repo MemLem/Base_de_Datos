@@ -42,13 +42,13 @@ productos. (valor 4.5)
 
         USE tienda_informatica;
 
-        SELECT COUNT(nombre_producto), nombre_fabricante FROM productos 
-        INNER JOIN fabricante 
-                ON productos.id_fabricante1 = fabricante.id_fabricante
+        SELECT nombre_fabricante, COUNT(codigo_producto) FROM fabricante
+        INNER JOIN productos ON productos.id_fabricante1 = fabricante.id_fabricante
         GROUP BY(nombre_fabricante)
-        ORDER BY(nombre_fabricante) DESC;
+        ORDER BY (COUNT(codigo_producto)) DESC;
+        
+![image](https://user-images.githubusercontent.com/75552884/171881515-37f2742f-9086-4675-b57d-8723fab34921.png)
 
-![image](https://user-images.githubusercontent.com/75552884/171674376-bfc8b8fc-8e34-4781-a90c-1d05eee433eb.png)
 
 
 3. Muestra el precio máximo, precio mínimo y precio medio de los productos de cada
