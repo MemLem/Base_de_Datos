@@ -18,6 +18,9 @@ Ejercicio:
 
 3. Realiza un diseño del modelo copo de nieve (valor 2)
 
+![image](https://user-images.githubusercontent.com/75552884/171902519-a2764c2e-46e5-402f-a014-75615e1496a6.png)
+
+
 
 ## Práctica 7
 ### Funciones en SQL
